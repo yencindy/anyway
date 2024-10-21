@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码验证</title>
+    <script>
+        async function validatePassword() {
+            const password = document.getElementById('password').value;
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbxohjPtHwSVVCNgJKAJso69rfD7NEozBOcUzEDPHBcWtbcMblwfl5sWV2qH6dhZUvt3/exec?password=${encodeURIComponent(password)}`);
+            const message = await response.text();
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <h1>请输入密码</h1>
+    <input type="text" id="password" placeholder="输入密码" required />
+    <button onclick="validatePassword()">提交</button>
+</body>
+</html>
+
